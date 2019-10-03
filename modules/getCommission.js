@@ -1,4 +1,6 @@
-const getCommission = function calculateCommission(amount, operationType, personType, config) {
+const operationsConfig = require('./operationsEur');
+
+const getCommission = function calculateCommission(amount, operationType, personType, config = operationsConfig) {
   if (!config) throw Error('Please provide a config object for operations');
 
   switch (operationType) {
