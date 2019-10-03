@@ -33,19 +33,6 @@ To run test suits. Install Jest 24.9.0 locally
 `$ npm install --save-dev jest`
 (installs Jest on your dev environment)
 
-  
-
-open `package.json` and at `"scripts"` property, on `"test"` add `"jest"`
-
-  
-
-```
-"scripts": {
-"test": "jest"
-}
-```
-
-  
 
 to execute test suits, open the terminal on the project directory & run:
 
