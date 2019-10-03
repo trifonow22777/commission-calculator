@@ -47,7 +47,7 @@ to execute test suits, open the terminal on the project directory & run:
 
   
 
-Create a file with the name of the function you want to test followed by `.test.js` e.g. `getCommission.test.js`
+Create a file with the name of the function you want to test followed by `.test.js` e.g. `formatValue.test.js`
 
 **.test.js is important !**  
 
