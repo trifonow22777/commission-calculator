@@ -1,0 +1,17 @@
+2015-01-07 user 1 cashed out 700 and left 300 free for this week
+same week
+2015-01-09 user 2 cashed out 1500 and left 0 free for this week
+same week | same day
+2015-01-09 user 1 cashed out 100 and left 200 free for this week    
+same week
+2015-01-11 user 1 cashed out 700 and exceeded with 500 from whats left
+same week | same day
+2015-01-11 user 2 cashed out 1500 with already exceeded quota
+
+2017-05-07 user 1 cashed out 500 and left 500 free for this week
+same week | same day
+2017-05-07 user 1 cashed out 1000 and exceeded with 500 his free limit
+same week | same day
+2017-05-07 user 1 cashed out 110 with already exceeded free quota
+same week | same day
+2017-05-07 user 2 cashed out 1000 and reached its free week limit
