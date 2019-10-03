@@ -47,7 +47,7 @@ to execute test suits, open the terminal on the project directory & run:
 
   
 
-Create a file with the name of the function you want to test followed by `.test.js` e.g. `formatValue.test.js`
+Create a file with the name of the function you want to test followed by `.test.js` e.g. `getCommission.test.js`
 
 **.test.js is important !**  
 
@@ -59,21 +59,11 @@ To make a simple test with matching against expected result type:
 
 ```
 test("describe what the test is about", () => {
-let result = \your function return value or expression to test e.g. formatValue(700);
-let expected = \expected value e.g. "7.00"
+let result = \your function return value or expression to test e.g. getCommission(1000, 'cash_in', 'natural');
+let expected = \expected value e.g. 30
 expect(result).toBe(expected);
 });
 ```
-
->Note:
-
-**If you want to test the "getCommission" function separately, require the configuration file of the currency also!**
-
-**Configuration file is `/modules/operationsEur.js`!**
-
-
-  
-  
 
 `test` binding is available globally in Jest
 
@@ -164,7 +154,7 @@ calculates commission based on conditions
 
   * personType: [`String`], (natural or juridical)
 
-  * config: [`Object`] (config file for the currency and logic)
+  * config [`optional`]: [`Object`] | `default: operationsEur` (config file for the currency and logic)
 
   
 
