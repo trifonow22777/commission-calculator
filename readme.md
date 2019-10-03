@@ -48,17 +48,19 @@ to execute test suits, open the terminal on the project directory & run:
   
 
 Create a file with the name of the function you want to test followed by `.test.js` e.g. `getCommission.test.js`
+
 **.test.js is important !**  
 
 Inside the file, require the function you want to be tested using the CommonJs syntax for NodeJs e.g.
+
 `const <NameOfFunction> = require("...path");`
 
 To make a simple test with matching against expected result type:
 
 ```
 test("describe what the test is about", () => {
-let result = \your function return value or expression to test e.g. getCommission(1000, 'cash_in', 'natural', configFile);
-let expected = \expected value e.g. 30
+let result = \your function return value or expression to test e.g. formatValue(700);
+let expected = \expected value e.g. "7.00"
 expect(result).toBe(expected);
 });
 ```
@@ -66,6 +68,9 @@ expect(result).toBe(expected);
 >Note:
 
 **If you want to test the "getCommission" function separately, require the configuration file of the currency also!**
+
+**Configuration file is `/modules/operationsEur.js`!**
+
 
   
   
@@ -89,7 +94,6 @@ For more custom properties, refer to the Jest docs: https://jestjs.io/docs/en/ge
 There are 4 functions and 1 configuration file.
 1 main function which depends on the other 3 + the configuration object (the other 3 functions do not depend on the wrapper function and could operate separate from each other).
 Configuration object is used by the wrapper function "operate" and "getCommission" function to calculate commission based on conditions.
-
   
 
 - Data flow
