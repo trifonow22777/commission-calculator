@@ -1,0 +1,21 @@
+0.20 - correct
+0.40 - correct
+0.30 - correct
+1.50 - correct
+2.40 - correct (returned correct, you calculated wrong)
+3.10 - correct
+5.00 - correct
+5.00 - correct
+0.00 - correct
+1.50 - correct
+0.00 - correct
+450.00 - correct
+0.50 - correct
+1.50 - correct
+4.50 - correct
+0.00 - correct
+1.50 - correct
+0.40 - correct
+0.00 - correct
+15.00 - correct
+1.20 - correct

@@ -1,0 +1,20 @@
+{
+  "name": "numberformating",
+  "jest": {
+    "verbose": true,
+    "modulePathIgnorePatterns": [
+      "<rootDir>/backup/"
+    ]
+  },
+  "version": "1.0.0",
+  "description": "commission calculator",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Pepi Trifonov",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}

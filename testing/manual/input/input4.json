@@ -1,0 +1,23 @@
+[
+    { "date": "2012-03-04", "user_id": 1, "user_type": "natural", "type": "cash_in", "operation": { "amount": 500, "currency": "EUR" } },
+    { "date": "2012-03-05", "user_id": 2, "user_type": "natural", "type": "cash_in", "operation": { "amount": 1200, "currency": "EUR" } },
+    { "date": "2012-04-11", "user_id": 3, "user_type": "juridical", "type": "cash_in", "operation": { "amount": 900.00, "currency": "EUR" } },
+    { "date": "2012-04-18", "user_id": 4, "user_type": "juridical", "type": "cash_in", "operation": { "amount": 5000.00, "currency": "EUR" } },
+    { "date": "2012-05-07", "user_id": 3, "user_type": "juridical", "type": "cash_in", "operation": { "amount": 7770.00, "currency": "EUR" } },
+    { "date": "2012-05-07", "user_id": 1, "user_type": "natural", "type": "cash_in", "operation": { "amount": 10000.50, "currency": "EUR" } },
+    { "date": "2012-07-28", "user_id": 3, "user_type": "juridical", "type": "cash_in", "operation": { "amount": 2000000, "currency": "EUR" } },
+    { "date": "2012-11-05", "user_id": 2, "user_type": "natural", "type": "cash_in", "operation": { "amount": 100000.00, "currency": "EUR" } },
+    { "date": "2015-01-07", "user_id": 1, "user_type": "natural", "type": "cash_out", "operation": { "amount": 700, "currency": "EUR" } },
+    { "date": "2015-01-09", "user_id": 2, "user_type": "natural", "type": "cash_out", "operation": { "amount": 1500.00, "currency": "EUR" } },
+    { "date": "2015-01-09", "user_id": 1, "user_type": "natural", "type": "cash_out", "operation": { "amount": 100.00, "currency": "EUR" } },
+    { "date": "2015-01-10", "user_id": 3, "user_type": "juridical", "type": "cash_out", "operation": { "amount": 150000.00, "currency": "EUR" } },
+    { "date": "2015-01-11", "user_id": 4, "user_type": "juridical", "type": "cash_out", "operation": { "amount": 130, "currency": "EUR" } },
+    { "date": "2015-01-11", "user_id": 1, "user_type": "natural", "type": "cash_out", "operation": { "amount": 700.00, "currency": "EUR" } },
+    { "date": "2015-01-11", "user_id": 2, "user_type": "natural", "type": "cash_out", "operation": { "amount": 1500.00, "currency": "EUR" } },
+    { "date": "2017-05-07", "user_id": 1, "user_type": "natural", "type": "cash_out", "operation": { "amount": 500, "currency": "EUR" } },
+    { "date": "2017-05-07", "user_id": 1, "user_type": "natural", "type": "cash_out", "operation": { "amount": 1000, "currency": "EUR" } },
+    { "date": "2017-05-07", "user_id": 1, "user_type": "natural", "type": "cash_out", "operation": { "amount": 110, "currency": "EUR" } },
+    { "date": "2017-05-07", "user_id": 2, "user_type": "natural", "type": "cash_out", "operation": { "amount": 1000.00, "currency": "EUR" } },
+    { "date": "2017-07-11", "user_id": 3, "user_type": "juridical", "type": "cash_out", "operation": { "amount": 5000, "currency": "EUR" } },
+    { "date": "2017-07-12", "user_id": 4, "user_type": "juridical", "type": "cash_out", "operation": { "amount": 400.00, "currency": "EUR" } }
+]
