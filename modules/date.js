@@ -25,7 +25,7 @@ const getDate = function getCalendarTime (yy, mm, dd) {
   };
   
   let daysOfYear = countDays(yy, mm, dd); // how many days have passed until the beginning of the input year to the input date (input date included)
-  let leapYears = diffLeap(yy); // how many leap years (excluding the input year) are between the anchor and input date (for offseting purposes)
+  let leapYears = diffLeap(yy); // how many leap years (including the input year) are between the anchor and input date (for offseting purposes)
   let equalYears = yy - anchorDate.year; // how many years (leap years neglected) are between the anchor and input date
   let daysBetween = (equalYears * 365) + leapYears + daysOfYear;
   let weekday = (daysBetween + 3) % 7; // calculate the week day in 0 based indexing e.g. 0 = Monday; 1 = Tuesday...

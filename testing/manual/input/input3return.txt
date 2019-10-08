@@ -1,20 +1,22 @@
 2.10
 3.00
-2.30
+2.25
 0.05
-0.00 (id: 1; date: 2017.07.11; free left: 872)
+0.00 (date: 2017-07-11; userId: 1; freeLeft: 872)
 15.00
-0.00 (id: 1; date: 2017.07.12; free left: 172)
-0.30 (id: 2; date: 2017.07.13; free left: 0)
-0.00 (id: 4; date: 2017.07.13; free left: 900)
-2.70 (id: 2; date: 2017.07.15; free left: 0)
-1.00 (id: 1; date: 2017.07.16; free left: 0)
-0.00 (id: 1; date: 2017.07.17; free left: 500)
+0.00 (date: 2017-07-12; userId: 1; freeLeft 172)
+0.30  (date: 2017-07-13 [same week]; userId: 2; freeLeft: 0; exceededWith: 100)
+0.00 (date: 2017-07-13 [same week]; userId: 4; freeLeft: 900)
+2.70 (date: 2017-07-15 [same week]; userId: 2; freeLeft: 0; exceededWith: 900)
+0.99 (date: 2017-07-16 [same week]; userId: 1; freeLeft: 0; exceededWith: 328)
+0.00 (date: 2017-07-17 [diff week]; userId: 1; freeLeft: 500)
 3.60
-7.20 (id: 2; date: 2017.08.07; free left: 0)
-0.30 (id: 2; date: 2017.08.10; free left: 0)
-0.00 (id: 4; date: 2017.08.11; free left: 200)
-0.60 (id: 4; date: 2017.08.12; free left: 0)
+7.20 (date: 2017-08-07 [diff week]; userId: 2; freeLeft: 0; exceededWith: 2400)
+0.30 (date: 2017-08-10 [same week]; userId: 2; freeLeft: 0; exceededWith: 100)
+0.00 (date: 2017-08-11 [same week]; userId: 4; freeLeft: 200)
+0.60 (date: 2017-08-12 [same week]; userId: 4; freeLeft: 0; exceededWith: 200)
 0.50
 5.00
 5.00
+
+values returned as anticipated

@@ -1,11 +1,11 @@
-0.40
+0.36
 0.09
 3.00
-0.00 (id: 1; date: 2012.11.12; left: 700)
-0.00 (id: 1; date: 2012.11.17; left: 200)
-3.00 (id: 2; date: 2012.11.22; left: 0)
-0.00 (id: 1; date: 2012.11.22; left 550)
+0.00 (date: 2012-11-12; userId: 1; freeLeft: 700)
+0.00 (date: 2012-11-17 [^same week]; userId: 1; freeLeft: 200)
+3.00 (date: 2012-11-22 [^diff week]; userId: 2; freeLeft 0; exceededWith: 1000)
+0.00 (date: 2012-11-22 [^same week]; userId: 1; freeLeft: 550)
 30.00
-0.30
+0.21
 
-correct expectations
+successfully returned the anticipated values

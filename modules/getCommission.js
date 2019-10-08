@@ -1,30 +1,29 @@
-const operationsConfig = require('./operationsEur');
+const hardcodedConfig = require('./operationsEur'); // if we are to test this function seperately, we will mock the cofiguration api, since it can produce its own mistakes
 
-const getCommission = function calculateCommission(amount, operationType, personType, config = operationsConfig) {
-  if (!config) throw Error('Please provide a config object for operations');
+const getCommission = function calculateCommission(amount, operationType, personType, config = hardcodedConfig) {  
 
   switch (operationType) {
     case 'cash_in': {
-      let {percents, maxLimit} = config.cashIn;
-      let commission = Math.ceil(amount * percents);
+      let {percents, max} = config.logic.cashIn; // destructure properties from configuration object for readability purposes
+      let commission = (amount * percents); 
 
-      if (commission > (maxLimit * config.biggestUnit)) return (maxLimit * config.biggestUnit);
+      if (commission > (max.amount * config[max.currency].biggestUnit)) return (max.amount * config[max.currency].biggestUnit);
       return commission;
     }
     case 'cash_out': {
-      let {natural, juridical} = config.cashOut;
+      let {natural, legal} = config.logic.cashOut;
       
       switch (personType) {
         case 'natural': {
-            let commission = Math.ceil(amount * natural.percents);
+            let commission = (amount * natural.percents);
 
             return commission;
           }
         case 'juridical': {
-          let commission = Math.ceil(amount * juridical.percents);
+          let commission = (amount * legal.percents);
 
-          if (commission < (juridical.minLimit * config.biggestUnit)) {
-            return (juridical.minLimit * config.biggestUnit)
+          if (commission < (legal.min.amount * config[legal.min.currency].biggestUnit)) {
+            return (legal.min.amount * config[legal.min.currency].biggestUnit);
           };
           return commission;
         }
@@ -41,3 +40,5 @@ const getCommission = function calculateCommission(amount, operationType, person
 };
 
 module.exports = getCommission;
+
+// diff with previous version - Removed the Math.ceil() from final commission calculation (numbers must be passed in raw format [not ceiled] to function "formatValue()")
