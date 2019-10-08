@@ -8,8 +8,9 @@ const formatValue = function formatOutput(value, currency = 'EUR') { // its only
   if (Object.keys(currencies).some(cur => cur !== currency)) throw new Error('Unknown currency format in argument 2 of function "formatOutput"');
 
   let {smallestUnit} = currencies[currency];
-  if (value < 10) return (Math.ceil(value) * smallestUnit).toFixed(2);
-  return (Math.ceil(value * 0.1) * 10 * smallestUnit).toFixed(2);    
+  // if (value < 10) return (Math.ceil(value) * smallestUnit).toFixed(2); <-- unnecessary clause
+  return ((Math.ceil(value) * 0.1) * 10 * smallestUnit).toFixed(2);  
+  // return (Math.ceil(value * 0.1) * 10 * smallestUnit).toFixed(2); // <--- old return (moved the ceiling to the raw value instead of the whole multiplication of (value * 0.1))
 };
 
 module.exports = formatValue;

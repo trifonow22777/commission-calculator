@@ -1,11 +1,7 @@
 
-  
-
 # Commission calculator from assignment
 
-  
 
-  
 
 ## Environment:
 
@@ -19,7 +15,7 @@ nodeJs 10.16.0 or higher
 
 (no 3rd party libraries & modules required except for the testing suite). Open your os terminal and run:
 
-`$ node app [path to input file]`
+`$ node app [path to input.json]`
 (result shall be written to stdout)
 
 Program accepts input as json format only
@@ -32,7 +28,6 @@ To run test suits. Install Jest 24.9.0 locally
 
 `$ npm install --save-dev jest`
 (installs Jest on your dev environment)
-
 
 to execute test suits, open the terminal on the project directory & run:
 
@@ -65,6 +60,7 @@ expect(result).toBe(expected);
 });
 ```
 
+
 `test` binding is available globally in Jest
 
   
@@ -78,28 +74,25 @@ For more custom properties, refer to the Jest docs: https://jestjs.io/docs/en/ge
 # Detailed explanation of functions:
 
   
+`/modules` - directory which contains all of the modules used by `app.js`
 
-  
-
-There are 4 functions and 1 configuration file.
-1 main function which depends on the other 3 + the configuration object (the other 3 functions do not depend on the wrapper function and could operate separate from each other).
-Configuration object is used by the wrapper function "operate" and "getCommission" function to calculate commission based on conditions.
-  
+The only tangledness of this program is the configuration object which is used by 3 functions: `app.js`, `operate()` & `getCommission()`. Without that configuration object, the program will not operate. Apart from that every other module used for pure calculations can operate without the need of this config object.
+There are 2 versions of it - the hardcoded one which is found in `/modules/operationsEur.js` and the api called found in `/modules/fetchConfiguration` which is called when typing `$ node app [path to input.json]`. The test suits use the hardcoded version to mock the config.
 
 - Data flow
 
-  - `operate()` - loops over each transaction | stores state for "cash_out" operation | builds up array of results
+  - `app.js` - asynchronous function used as a mediator between the input file, the configuration logic, and the computed results. It's job is to print computed commission from function 'operate' to stdout using side effects (this function cant be tested with pure return values)
 
-  - `getDate()` - returns the week for the transaction date (since the anchor date)
+  - `operate()` - loops over each transaction | stores state for "cash_out" operation | builds up array of results | uses external configuration logic
 
-  - `getCommission()` - calculates commission based on conditions
+  - `getDate()` - returns the week for the transaction date (since an anchor date)
+
+  - `getCommission()` - calculates commission based on conditions & values contained in the configuration object (either fetched or hardcoded)
 
   - `formatValue()` - formats value to a string representative
-
   
-
-Function `operate()` prepares an array for the results of each operation. It then loops over the input transactions. Then passes the key-values to `getCommission()` function to calculate the commission fee based on logical conditions. Function `operate()` stores a state for a "cash_out" operation of a "natural" person and uses the `getDate()` function to determine the week of the transaction date . The commission value is then passed to `formatValue()` to be formatted to a string representative and then pushed to the result array. The resulting array is returned
-
+`app.js` is is called first when running `$ node app [path to input.json]`. It works asynchronously because it relies on external data api call, which uses as a configuration object to pass for function `operate()`.
+Function `operate()` makes use for a part of the logic that is contained in the configuration object. It prepares an array for the results of each operation & a state object to remember week limits of specific users & operations types. It then loops over the input transactions. In the loop, each transaction key-values are passed to `getCommission()` function along with the configuration object to calculate the commission fee based on logical conditions. Function `operate()` stores a state for a "cash_out" operation of a "natural" person and uses the `getDate()` function to determine the week of the transaction date . The commission value is then passed to `formatValue()` to be formatted to a string representative and then pushed to the result array. The resulting array is returned
   
 
 ## Functions:
@@ -154,12 +147,12 @@ calculates commission based on conditions
 
   * personType: [`String`], (natural or juridical)
 
-  * config [`optional`]: [`Object`] | `default: operationsEur` (config file for the currency and logic)
+  * config: [`Object`] `[optional]` default: `hardcodedConfig` (config file for the currency and logic)
 
   
 
 * dependencies:
-none
+  * configuration object (either fetched from external source or hardcoded)
 
   
 
@@ -209,6 +202,7 @@ Stores a state for "cash_out" operation of a natural person
 
 * arguments:
   * input: [`Array`] (array with objects representing transactions with key values)
+  * operationsConfig: [`Object`] [`optional`] | default: `hardcodedConfig` (object representing logical conditions & values)
 
   
 
@@ -220,12 +214,48 @@ Stores a state for "cash_out" operation of a natural person
 
   * getCommission [Function]
 
-  * operationConfig [Object] (configuration for the currency)
-
-  
+  * operationConfig [Object] (configuration object)  
 
 * return value:
 [`Array`] (Array with String values representing commission fees for each operation)
+
+#### `fetchConfigApi()`:
+
+* description:
+Asynchronous function which fetches external data source through the built-in `http` module of NodeJs. The resolved call is used for building the configuration object
+
+* arguments:
+    none
+
+* dependencies:
+  * `http` module
+
+* return value:
+[`Object`] (Object representing values of the logical conditions)
+```
+{
+ EUR: {
+     smallestUnit: 0.01,
+     biggestUnit: 100,
+ },
+ logic: {
+     cashIn: {
+         percents: 0.03,
+         max: { amount: 5, currency: 'EUR' },
+     },
+     cashOut: {
+         natural: {
+             percents: 0.3,
+             week_limit: { amount: 1000, currency: 'EUR' },
+         },
+         legal: {
+             percents: 0.3,
+             min: { amount: 0.5, currency: 'EUR' },
+         },
+     },
+ },
+}
+```
 
 -------------------
 

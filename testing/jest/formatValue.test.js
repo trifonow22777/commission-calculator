@@ -5,12 +5,12 @@ test('commission of 50 should be formatted to 0.50', () => {
   expect(formatValue(50)).toBe('0.50');
 });
 
-test('commission of 34 should be formatted to 0.40', () => {
-  expect(formatValue(34)).toBe('0.40');
+test('commission of 34 should be formatted to 0.34', () => {
+  expect(formatValue(34)).toBe('0.34');
 });
 
-test('commission of 123 should be formatted to 1.30', () => {
-  expect(formatValue(123)).toBe('1.30');
+test('commission of 123 should be formatted to 1.23', () => {
+  expect(formatValue(123)).toBe('1.23');
 });
 
 test('commission of 200 should be formatted to 2.00', () => {
@@ -21,8 +21,8 @@ test('commission of 2000 should be formatted to 20.00', () => {
   expect(formatValue(2000)).toBe('20.00');
 });
 
-test('commission of 14 should be formatted to 0.20', () => {
-  expect(formatValue(14)).toBe('0.20');
+test('commission of 14 should be formatted to 0.14', () => {
+  expect(formatValue(14)).toBe('0.14');
 });
 
 test('commission of 0.5 should be formatted to 0.01', () => {

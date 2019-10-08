@@ -26,7 +26,7 @@ test('person_type: "juridical"; operation: "cash_out"; amount "10 000"; currency
 });
 
 test('person type: "juridical"; operation: "cash_in"; amount: "100 000"; currency: "EUR" should return 500', () => {
-  expect(getCommission(100000, 'cash_in', 'natural')).toBe(500);
+  expect(getCommission(100000, 'cash_in', 'juridical')).toBe(500);
 });
 
 test('person type: "natural"; operation: "cash_in"; amount: "120 400"; currency "EUR" should return 500', () => {
@@ -49,8 +49,8 @@ test('person type: "natural" operation: "cash_out"; amount "100" currency: "EUR"
   expect(getCommission(100, 'cash_out', 'natural')).toBe(30);
 });
 
-test('person type: "juridical" operation: "cash_out"; amount: "1234" currency: "EUR" should return 371', () => {
-  expect(getCommission(1234, 'cash_out', 'juridical')).toBe(371);
+test('person type: "juridical" operation: "cash_out"; amount: "1234" currency: "EUR" should return 370.2', () => {
+  expect(getCommission(1234, 'cash_out', 'juridical')).toBe(370.2);
 });
 
 test('person type: "natural" operation: "cash_in"; amount: "8 000" currency: "EUR" should return 240', () => {

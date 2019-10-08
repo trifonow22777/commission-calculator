@@ -1,21 +1,23 @@
-0.20 - correct
-0.40 - correct
-0.30 - correct
-1.50 - correct
-2.40 - correct (returned correct, you calculated wrong)
-3.10 - correct
-5.00 - correct
-5.00 - correct
-0.00 - correct
-1.50 - correct
-0.00 - correct
-450.00 - correct
-0.50 - correct
-1.50 - correct
-4.50 - correct
-0.00 - correct
-1.50 - correct
-0.40 - correct
-0.00 - correct
-15.00 - correct
-1.20 - correct
+0.15
+0.36
+0.27
+1.50
+2.34
+3.00 ? 3.01 <-- most likely
+5.00
+5.00
+0.00 (date: 2015-01-07; userId: 1; freeLeft: 300)
+1.50 (date: 2015-01-09 [same week]; userId: 2; freeLeft: 0; exceededWith: 500)
+0.00 (date: 2015-01-09 [same week]; userId: 1; freeLeft: 200)
+450.00
+0.50
+1.50 (date: 2015-01-11 [same week]; userId: 1; freeLeft: 0; exceededWith: 500)
+4.50 (date: 2015-01-11 [same week]; userId: 2; freeLeft: 0; exceededWith: 1500.00)
+0.00 (date: 2015-05-07 [diff week]; userId: 1; freeLeft: 500)
+1.50 (date: 2015-05-07 [same week]; userId: 1; freeLeft: 0; exceededAmount: 500)
+0.33 (date: 2015-05-07 [same week]; userId: 1; freeLeft: 0; exceededAmount: 110)
+0.00 (date: 2017-05-07 [same week]; userId: 2; freeLeft: 0)
+15.00
+1.20
+
+returned correct as anticipated
